@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  app: hey-benchmark
+
+resources:
+  - ../../base
+
+configMapGenerator:
+  - name: hey-config
+    literals:
+      - HEY_N=100000
+      - HEY_C=100
+      - HEY_M=GET
+      - HEY_TARGET=phpdemo.afcucorp.local
