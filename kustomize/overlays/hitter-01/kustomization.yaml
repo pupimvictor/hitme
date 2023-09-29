@@ -9,6 +9,7 @@ bases:
 
 configMapGenerator:
   - name: hey-config
+    namespace: hitter
     behavior: create
     literals:
       - HEY_N=1000000
