@@ -5,3 +5,13 @@ nameSuffix: -hitter-03
 
 bases:
   - ../../base
+
+
+configMapGenerator:
+  - name: hey-config
+    behavior: create
+    literals:
+      - HEY_N=1000000
+      - HEY_C=100
+      - HEY_M=GET
+      - HEY_TARGET=http://phpdemo.phpdemo

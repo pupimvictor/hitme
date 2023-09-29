@@ -14,4 +14,4 @@ configMapGenerator:
       - HEY_N=1000000
       - HEY_C=100
       - HEY_M=GET
-      - HEY_TARGET=http://phpdemo.phpde
+      - HEY_TARGET=http://phpdemo.phpdemo
