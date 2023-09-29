@@ -2,6 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 nameSuffix: -hitter-01
+namespace: hitter
 
 bases:
   - ../../base
@@ -9,7 +10,6 @@ bases:
 
 configMapGenerator:
   - name: hey-config
-    namespace: hitter
     behavior: create
     literals:
       - HEY_N=1000000
