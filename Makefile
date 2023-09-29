@@ -22,8 +22,10 @@ clean:
 	kubectl delete job $(KUBE_JOB_NAME)
 
 exec:
-	kubectl exec -it jobs/hey-job -- bash
+	kubectl exec -it jobs/hey-job -- sh
 
+redeploy: clean deploy
+	
 all: build push clean deploy 
 	sleep 5
 	kubectl logs -f job/$(KUBE_JOB_NAME)

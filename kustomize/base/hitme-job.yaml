@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hitme
+spec:
+  template:
+    metadata:
+      name: hey-pod
+    spec:
+      containers:
+        - name: hitter
+          image: hitme
+          command: ["/app/hey", "-n", $(HEY_N), "-c", $(HEY_C), "-m", "$(HEY_M)", "$(HEY_TARGET)"]
+      restartPolicy: Never
+      imagePullSecrets:
+        - name:  regcred-pv
+  backoffLimit: 100  # Number of retries if the Job fails
