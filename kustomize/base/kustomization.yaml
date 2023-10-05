@@ -8,7 +8,6 @@ commonLabels:
 
 resources:
   - hitme-job.yaml
-  - cm.yaml
   - ns.yaml
 
 images:
