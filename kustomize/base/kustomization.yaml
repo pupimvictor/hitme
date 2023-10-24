@@ -7,10 +7,11 @@ commonLabels:
   app: hitme 
 
 resources:
-  # - hpa.yaml
+  - ns.yaml
   - hitme-deploy.yaml
   # - cronjob.yaml
-  # - ns.yaml
+  # - hpa.yaml
+  
 
 configurations:
   - "nameReferences.yaml"

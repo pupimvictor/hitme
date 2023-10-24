@@ -7,7 +7,6 @@ namespace: hitter
 bases:
   - ../../base
 
-
 configMapGenerator:
   - name: hey-config
     behavior: create
