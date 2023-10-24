@@ -17,4 +17,4 @@ configMapGenerator:
       - HEY_N=1000000
       - HEY_C=10
       - HEY_M=GET
-      - HEY_TARGET=http://phpdemo.teste-wkl.braporto.local
+      - HEY_TARGET=http://btp-tos-gate-dev.service-apigateinvalidation
