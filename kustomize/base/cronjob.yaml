@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: my-job
+spec:
+  jobTemplate:
+    metadata:
+      name: hitme
+      namespace: hitter
+    spec:
+      template:
+        metadata:
+          name: hey-pod
+        spec:
+          containers:
+            - name: hitter
+              image: hitme
+              command: ["/app/hey", "-n", $(HEY_N), "-c", $(HEY_C), "-m", "$(HEY_M)", "$(HEY_TARGET)"]
+              resources:
+                requests:
+                  cpu: "200m"
+                  memory: 200Mi
+                limits:
+                  cpu: "200m"
+                  memory: 200Mi
+          restartPolicy: Never
+          imagePullSecrets:
+            - name:  regcred-pv
+      backoffLimit: 100  # Number of retries if the Job fails
+  concurrencyPolicy: Forbid
+  schedule: "*/5 * * * *"
+status: {}

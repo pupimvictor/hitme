@@ -1,9 +1,14 @@
-apiVersion: batch/v1
-kind: Job
+---
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: hitme
   namespace: hitter
 spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: hitme
   template:
     metadata:
       name: hey-pod
@@ -14,12 +19,11 @@ spec:
           command: ["/app/hey", "-n", $(HEY_N), "-c", $(HEY_C), "-m", "$(HEY_M)", "$(HEY_TARGET)"]
           resources:
             requests:
-              cpu: "200m"
-              memory: 200Mi
+              cpu: "100m"
+              memory: 100Mi
             limits:
-              cpu: "200m"
+              cpu: "400m"
               memory: 200Mi
-      restartPolicy: Never
+      restartPolicy: Always
       imagePullSecrets:
         - name:  regcred-pv
-  backoffLimit: 100  # Number of retries if the Job fails

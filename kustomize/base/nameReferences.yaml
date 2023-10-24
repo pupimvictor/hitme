@@ -1,0 +1,6 @@
+nameReference:
+- kind: Deployment
+  name: hitme
+  fieldSpecs:
+  - kind: HorizontalPodAutoscaler 
+    path: /spec/scaleTargetRef/name

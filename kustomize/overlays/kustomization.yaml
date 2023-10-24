@@ -6,7 +6,10 @@ commonLabels:
 
 bases:
   - hitter-01/
-  # - hitter-02/
-  # - hitter-03/
-  # - hitter-04/
-  # - hitter-05/
+  - hitter-02/
+  - hitter-03/
+  - hitter-04/
+  - hitter-05/
+
+resources:
+  - namespaces/hitter-ns.yaml

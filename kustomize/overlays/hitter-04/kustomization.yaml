@@ -1,7 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-nameSuffix: -hitter-04
+nameSuffix: "-04"
+namespace: hitter
 
 bases:
   - ../../base
@@ -10,9 +11,10 @@ bases:
 configMapGenerator:
   - name: hey-config
     behavior: create
-    namespace: hitter
+    options:
+      disableNameSuffixHash: true
     literals:
       - HEY_N=1000000
-      - HEY_C=100
+      - HEY_C=1
       - HEY_M=GET
       - HEY_TARGET=http://phpdemo.phpdemo

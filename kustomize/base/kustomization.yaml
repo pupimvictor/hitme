@@ -7,8 +7,13 @@ commonLabels:
   app: hitme 
 
 resources:
-  - hitme-job.yaml
-  - ns.yaml
+  # - hpa.yaml
+  - hitme-deploy.yaml
+  # - cronjob.yaml
+  # - ns.yaml
+
+configurations:
+  - "nameReferences.yaml"
 
 images:
 - name: hitme
@@ -17,7 +22,7 @@ images:
 
 patches:
   - target:
-      kind: Job
+      kind: Deployment
       # labelSelector: app=hitme
     patch: |
       - op: replace
@@ -43,3 +48,4 @@ patches:
               configMapKeyRef:
                 name: hey-config
                 key: HEY_TARGET
+  
